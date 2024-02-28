@@ -76,7 +76,6 @@ class doctor(models.Model):
     reason = models.TextField(max_length=500, blank=True)
     phone = models.PositiveIntegerField( blank=True)
     email = models.CharField(max_length=300, blank=True)
-    # date = models.DateField()
     address = models.TextField(max_length=300, blank=True)
     pet = models.CharField(max_length=300,choices=pet_choice)
 
