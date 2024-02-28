@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            cursor: pointer;
+            background-color: #DDD0C8;
+        } 
+        .main{
+            height: 100px;
+            /* background-color: red; */
+            text-align: center;
+            font-size: 50px;
+            padding-top: 200px;
+        }
+
+        .but{
+            height: 200px;
+            /* background-color: pink; */
+            text-align: center;
+        }
+    button {
+            border: none;
+            width: 150px;
+            height: 45px;
+            font-size: large;
+            background-color: white;
+        }
+
+   button:hover {
+            background-color: #c3b7af;
+            color: white;
+        }
+    </style>
+    </head>
+    
+    <body>
+        {% include "nav.html" %}
+        <div class="main">
+            Deleted successfully!!!
+        </div>
+        <div class="but">
+            <button onclick="location.href='offered'">Back to offered</button>
+        </div>
+        {% include "footer.html" %}
+    </body>
+    
+    </html>

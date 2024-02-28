@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            cursor: pointer;
+            background-color: #DDD0C8;
+        }
+        .main {
+            width: 1000px;
+            height: 500px;
+            margin: auto;
+        }
+
+        .breed,
+        .user,
+        .price,
+        .buy,
+        .age {
+            /* background-color: pink; */
+            width: 400px;
+            margin-top: 5px;
+            font-size: xx-large;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+
+        .main2 {
+            margin-top: 100px;
+        }
+
+        .left {
+            /* background-color: violet; */
+            width: 600px;
+            height: 500px;
+            float: left;
+        }
+
+        .right {
+            /* background-color: blue; */
+            float: right;
+            width: 400px;
+            height: 500px;
+            font-size: xx-large;
+        }
+
+        button {
+            border: none;
+            width: 150px;
+            height: 45px;
+            font-size: large;
+            background-color: greenyellow;
+            /* margin: auto; */
+        }
+
+        button:hover {
+            color: white;
+        }
+
+        #but{
+            background-color: black;
+            color: white;
+        }
+
+        #but:hover{
+            color: #DDD0C8;
+        }
+    </style>
+</head>
+
+<body>
+    {% include "sellernav.html" %}
+
+    {% for dogI in dogIs %}
+    <div class="main">
+        <div class="left">
+            <div class="img">
+                <img src="media/{{dogI.img}}" alt="" srcset="" width="500px" height="400px"
+                    style="margin-left: 50px; margin-top: 50px;">
+            </div>
+        </div>
+
+        <div class="right">
+            <div class="main2">
+                <div class="user">
+                    Seller: {{dogI.username}}
+                </div>
+                <div class="breed">Breed: {{dogI.breed}}</div>
+                <div class="age">Age: {{dogI.age}} months</div>
+                <div class="price">
+                    Price:<span class="prices"> {{dogI.price}}</span> Rs
+                </div>
+                <div class="buy">
+                    <button id="but"  onclick="dell('{{dogI.breed}}')">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+    {% for catInfo in catInfos %}
+    <div class="main">
+        <div class="left">
+            <div class="img">
+                <img src="media/{{catInfo.img}}" alt="" srcset="" width="500px" height="400px"
+                    style="margin-left: 50px; margin-top: 50px;">
+            </div>
+        </div>
+
+        <div class="right">
+            <div class="main2">
+                <div class="user">
+                    Seller: {{catInfo.username}}
+                </div>
+                <div class="breed">Breed: {{catInfo.breed}}</div>
+                <div class="age">Age: {{catInfo.age}} months</div>
+                <div class="price">
+                    Price: {{catInfo.price}} Rs
+                </div>
+                <div class="buy">
+                    <button id="but" onclick="dell('{{catInfo.breed}}')">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+    {% include "footer.html" %}
+</body>
+
+<script>
+    function dell(mainn){
+        document.cookie = `mainn = ${mainn}`;
+             localStorage.setItem("mainn", mainn)
+        window.location.href="/delete" 
+    }
+</script>
+
+</html>

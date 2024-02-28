@@ -1,0 +1,231 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            cursor: pointer;
+            background-color: #DDD0C8;
+        }
+
+        .main1 {
+            background-color: red;
+            width: 100%;
+            height: 650px;
+            background-image: url("static/main1.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        #img1 {
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 650px;
+            background-position: center;
+            width: 100%;
+        }
+
+        video {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -o-object-fit: cover;
+            object-fit: cover;
+            -o-object-position: center;
+            object-position: center;
+        }
+
+        #desc h2 {
+            background: #000000 none repeat scroll 0 0;
+            color: white;
+            font-weight: 600;
+            margin: 2rem 3rem 0;
+            mix-blend-mode: overlay;
+            padding: 5px 15px;
+            text-align: center;
+            font-size: 50px;
+            width: fit-content;
+            text-align: center;
+            margin: auto;
+        }
+
+        .main2 {
+            margin-top: 100px;
+            font-size: 50px;
+        }
+
+        .dogs {
+            background-image: url("static/Dog.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            float: left;
+            background-color: red;
+            height: 400px;
+            width: 49%;
+            margin-left: 0.5%;
+            border-radius: 10px;
+        }
+
+        .cats {
+            background-image: url("static/cat.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            float: right;
+            background-color: yellow;
+            height: 400px;
+            width: 49%;
+            margin-right: 0.5%;
+            border-radius: 10px;
+        }
+
+        .event {
+            text-align: center;
+            font-size: xx-large;
+            background-color: white;
+            width: fit-content;
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+        }
+
+        .dogs:hover .event {
+            display: block;
+        }
+
+        .cats:hover .event {
+            display: block;
+        }
+
+        .main3 {
+            margin-top: 450px;
+            font-size: 50px;
+        }
+
+        .accessories {
+            background-image: url("static/Accessories.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-color: purple;
+            height: 500px;
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .accessories:hover .event {
+            display: block;
+        }
+
+        .main4 {
+            margin-top: 50px;
+            font-size: 50px;
+        }
+
+        .doctor {
+            background-image: url("static/doctor.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: 100 100;
+            background-color: pink;
+            height: 500px;
+            width: 100%;
+        }
+
+        .doctor:hover .event {
+            display: block;
+        }
+
+        .seller {
+            text-align: center;
+            font-size: x-large;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    {% include "nav.html" %}
+
+    <div class="main1">
+        
+        <div id="desc">
+        </div>
+    </div>
+
+    <div class="main2">
+        Dogs&nbsp;and&nbsp;cats for&nbsp;sale!!!
+    </div>
+
+    {% if user.is_authenticated %}
+    <div class="dogs" onclick="window.location='dogs'">
+        {% else %}
+        <div class="dogs" onclick="window.location='login'">
+            {% endif %}
+            <div class="event">
+                Click&nbsp;here&nbsp;for&nbsp;details
+            </div>
+        </div>
+
+        {% if user.is_authenticated %}
+        <div class="cats" onclick="window.location='cats'">
+            {% else %}
+            <div class="cats" onclick="window.location='login'">
+                {% endif %}
+                <div class="event">
+                    Click&nbsp;here&nbsp;for&nbsp;details
+                </div>
+            </div>
+
+            <div class="main3">
+                Accessories, toys and food
+            </div>
+
+            {% if user.is_authenticated %}
+            <div class="accessories" onclick="window.location='accessories'">
+                {% else %}
+                <div class="accessories" onclick="window.location='login'">
+                    {% endif %}
+                    <div class="event">
+                        Click&nbsp;here&nbsp;for&nbsp;details
+                    </div>
+                </div>
+
+                <div class="main4">
+                    Doctor&nbsp;and appointment
+                </div>
+
+                {% if user.is_authenticated %}
+                <div class="doctor" onclick="window.location='doctor'">
+                    {% else %}
+                    <div class="doctor" onclick="window.location='login'">
+                        {% endif %}
+                        <div class="event">
+                            Click&nbsp;here&nbsp;for&nbsp;details
+                        </div>
+                    </div>
+                    <br> 
+                    {% include "footer.html" %}
+
+</body>
+
+</html>

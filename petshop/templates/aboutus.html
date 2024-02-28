@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About us</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            cursor: pointer;
+            background-color: #DDD0C8;
+        }
+
+        .main1 {
+            text-align: center;
+            font-size: xx-large;
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+
+        .main2 {
+            text-align: center;
+            font-size: 20px;
+            width: 60%;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="nav1">
+        {% include "nav.html" %}
+    </div>
+    
+    <div id="nav2">
+    {% include "sellernav.html" %}
+    </div>
+
+    <div class="main">
+        <div class="main1">
+            About us
+        </div>
+        <div class="main2">
+            Dogs for sale was founded out of the need to provide an ethical and convenient alternative to enable dog
+            lovers in INDIA to find world-class purebred puppies. <br><br><br><br>
+
+            Too often we have seen horrific breeding practices in this part of the world; dominated by pet markets. Dams
+            are over bred, often too young, and puppies are unhealthy and brought up in sub-standard living conditions.
+            They are usually separated from their mother too early resulting in all sorts of health conditions, a lower
+            quality of life and a shorter life span. <br><br><br><br>
+
+            At Dogs for sale we believe in the ethical treatment of animals and insist that dog breeding must be carried
+            out in the most humane manner possible. We will never deal with unethical breeders under any circumstances.
+            <br><br><br><br>
+            We have an extensive network of Kennel Club breeders, small family breeders and breed enthusiasts. We
+            personally visit the breeder of every puppy that we supply where we examine the living conditions, verify
+            the health and well being, and confirm the temperament, appearance and breed standards of their dogs. We are
+            constantly travelling to international dog shows, renewing old acquaintances and making new ones!
+            <br><br><br><br>
+            Prior to delivery, all of our puppies visit a qualified veterinarian, where they are given their first
+            vaccinated, de-wormed and undergo a comprehensive health check up. All of our puppies are certified healthy;
+            the new owner will receive the original, signed veterinary report.
+            <br><br><br><br>
+        </div>
+    </div>
+
+    {% include "footer.html" %}
+</body>
+<script>
+
+    if (document.getElementById("loggg").innerHTML == "Login"){
+        window.location.href = "/login"
+    }
+    let ops = localStorage.getItem("only")
+
+    if(ops == 1 || ops == null){
+        document.getElementById('nav2').style.display = 'none';
+    }else{
+        document.getElementById('nav1').style.display = 'none';
+     
+    }
+</script>
+</html>

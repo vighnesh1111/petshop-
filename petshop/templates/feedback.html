@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            cursor: pointer;
+            background-color: #DDD0C8;
+        }
+.main{
+    text-align: center;
+}
+        .main1 {
+            text-align: center;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            font-size: xx-large;
+        }
+
+        input {
+            font-size: large;
+            width: 500px;
+            height: 50px;
+            text-align: center;
+        }     
+
+        .message {
+            font-size: xx-large;
+        }
+
+       
+
+        button:hover{
+            color: #DDD0C8;
+        }
+        textarea {
+      text-align: center;
+      font-size: x-large;
+    }
+
+    /* #login{
+        display: none;
+    } */
+
+     /* button {
+           
+        } */
+
+/*
+    #bu{
+        color: black;
+    } */
+
+    #login button {
+            border: none;
+            width: 150px;
+            height: 45px;
+            font-size: large;
+            background-color: white;
+        }
+
+        #login button:hover {
+            background-color: #c3b7af;
+            color: white;
+        }
+
+        #but{
+            /* background-color: black;
+            color: white; */
+            font-size: x-large;
+            border: none;
+            background-color: black;
+            color: white;
+            width: 150px;
+            height: 45px;
+        }
+
+        #but:hover{
+            color: #DDD0C8;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="nav1">
+        {% include "nav.html" %}
+    </div>
+    
+    <div id="nav2">
+    {% include "sellernav.html" %}
+    </div>
+
+    <div class="main">
+        <div class="main1">
+            Feedback
+        </div>
+        <!--  -->
+        <div class="main2">
+            <form method="post">
+                {% csrf_token %}
+                <input type="text" name="name" id="name" readonly value="{{request.user}}"> <br> <br>
+                <input type="number" name="phone" id="phone" placeholder="Enter your phone number"> <br><br>
+                <input type="email" name="email" id="email" placeholder="Enter your e-mail"> <br> <br>
+                <input type="text" name="subject" id="subject" placeholder="Enter subject"> <br> <br>
+                <textarea name="message" id="message" cols="60" rows="5" placeholder="Message"></textarea> <br> <br>
+                <button type="submit" id="but">Submit</button>
+            </form>
+        </div>
+
+    </div>
+    {% include "footer.html" %}
+</body>
+
+<script>
+    if (document.getElementById("loggg").innerHTML == "Login"){
+        window.location.href = "/login"
+    }
+    if (document.getElementById("name").value == "AnonymousUser"){
+        window.location.href = "/login"
+    }
+
+        let ops = localStorage.getItem("only")
+    
+        if(ops == 1 || ops == null){
+            document.getElementById('nav2').style.display = 'none';
+        }else{
+            document.getElementById('nav1').style.display = 'none';
+         
+        }
+</script>
+
+</html>

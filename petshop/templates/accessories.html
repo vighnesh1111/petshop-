@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessories</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            cursor: pointer;
+            background-color: #DDD0C8;
+        }
+
+        .main{
+            margin: auto;
+            text-align: center;
+            font-size: xx-large;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .optDog{
+            background-image: url("static/dogAccessories.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 500px;
+            width: 575px;
+            float: left;
+        }
+        .optCat{
+            background-image: url("static/catAccessories.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 500px;
+            width: 575px;
+            float: right;
+            background-position: center;
+        }
+        .main2{
+            width: 1200px;
+            height: 500px;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+   {% include "nav.html" %}
+
+    <div class="main">
+        <div class="line"> Accessories, toys and food for dogs and cats </div> <br>
+        <div class="main2">
+        <div class="optDog" onclick="location.href='dogAccessories'"></div>
+        <div class="optCat" onclick="location.href='catAccessories'"></div>
+    </div>
+    </div>
+
+{% include "footer.html" %}
+</body>
+
+</html>

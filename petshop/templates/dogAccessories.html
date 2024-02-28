@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog accessories</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            cursor: pointer;
+            background-color: #DDD0C8;
+        }
+
+.sel{
+    width: 60%;
+    text-align: center;
+    background-color: #c3b7af;
+    height: 40px;
+    font-size: 30px;
+    margin: auto;
+}
+
+#f
+{
+    background-color: #c3b7af;
+    float: left;
+    width: 33%;
+}
+
+#t{
+    width: 33%;
+    background-color: #c3b7af;
+    float: right;
+}
+#s{
+    width: 33%;
+    background-color: #c3b7af;
+    margin: auto;
+}
+
+#s:hover{
+    color: #DDD0C8;
+}
+
+#t:hover{
+    color: #DDD0C8;
+}
+
+#f:hover{
+    color: #DDD0C8;
+}
+
+.food,
+        .acc,
+        .toy {
+            width: 1000px;
+            height: 500px;
+            margin: auto;
+        }
+
+        .foods,
+        .accs,
+        .toys {
+            font-size: 50px;
+            text-align: center;
+        }
+
+        .breed,
+        .productName,
+        .price,
+        .buy,
+        .age {
+            /* background-color: pink; */
+            width: 400px;
+            margin-top: 5px;
+            font-size: xx-large;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+
+        .main2 {
+            margin-top: 100px;
+        }
+
+        .left {
+            /* background-color: violet; */
+            width: 600px;
+            height: 500px;
+            float: left;
+        }
+
+        .right {
+            /* background-color: blue; */
+            float: right;
+            width: 400px;
+            height: 500px;
+            font-size: xx-large;
+        }
+
+        button {
+            border: none;
+            width: 150px;
+            height: 45px;
+            font-size: large;
+            background-color: greenyellow;
+            /* margin: auto; */
+        }
+        .sel{
+            color: white;
+        }
+        button:hover {
+            color: white;
+        }
+
+        #but {
+            background-color: black;
+            color: white;
+        }
+
+        #but:hover {
+            color: #DDD0C8;
+        }
+    </style>
+</head>
+
+<body>
+    {% include "nav.html" %}
+
+<div class="sel">
+    <div id="f" onclick="location.href='#accs'">Accessories</div>
+    <div id="t" onclick="location.href='#foods'">Food</div>
+    <div id="s" onclick="location.href='#toys'">Toys</div>
+</div>
+
+    <div class="accs" id="accs">Accessories</div>
+    {% for dogAcc in dogAccs %}
+    <div class="acc">
+        <div class="left">
+            <div class="img">
+                <img src="media/{{dogAcc.img}}" alt="" srcset="" width="500px" height="400px"
+                    style="margin-left: 50px; margin-top: 50px;">
+            </div>
+        </div>
+
+        <div class="right">
+            <div class="main2">
+                <div class="productName">
+                    Product name: {{dogAcc.productName}}
+                </div>
+                <div class="price">
+                    Price: {{dogAcc.price}} Rs
+                </div>
+                <div class="buy">
+                    <button id="but" onclick="dog({{dogAcc.price}})">Buy</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+
+    <div class="toys" id="toys">Toys</div>
+    {% for dogToy in dogToys %}
+    <div class="toy">
+        <div class="left">
+            <div class="img">
+                <img src="media/{{dogToy.img}}" alt="" srcset="" width="500px" height="400px"
+                    style="margin-left: 50px; margin-top: 50px;">
+            </div>
+        </div>
+
+        <div class="right">
+            <div class="main2">
+                <div class="productName">
+                    Product name: {{dogToy.productName}}
+                </div>
+                <div class="price">
+                    Price: {{dogToy.price}} Rs
+                </div>
+                <div class="buy">
+                    <button id="but" onclick="dog({{dogToy.price}})">Buy</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+
+    <div class="foods" id="foods">Food</div>
+    {% for dogFood in dogFoods %}
+    <div class="food">
+        <div class="left">
+            <div class="img">
+                <img src="media/{{dogFood.img}}" alt="" srcset="" width="500px" height="400px"
+                    style="margin-left: 50px; margin-top: 50px;">
+            </div>
+        </div>
+
+        <div class="right">
+            <div class="main2">
+                <div class="productName">
+                    Product name: {{dogFood.productName}}
+                </div>
+                <div class="price">
+                    Price: {{dogFood.price}} Rs /kg
+                </div>
+                <div class="buy">
+                    <button id="but" onclick="dog({{dogFood.price}})">Buy</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    {% include "footer.html" %}
+</body>
+
+<script>
+    function dog(num){  
+    localStorage.setItem("price", num*100);
+    window.location.href = "/payment"
+    }
+</script>
+
+</html>

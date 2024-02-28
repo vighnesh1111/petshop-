@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        nav{
+            height: 60px;
+            background-color: #c3b7af;
+        }
+        #shopname{
+            background-image: url("static/nav.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            height: 60px;
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div id="shopname"></div>
+        <ul>
+            <li onclick="location.href='/'">Home</li>
+            <li onclick="location.href='aboutus'">About&nbsp;us</li>
+            <li onclick="location.href='contactus'">Contact&nbsp;us</li>
+            <li onclick="location.href='feedback'">Feedback</li>
+        </ul>
+        <div id="login">
+            <button id ="loggg" onclick="window.location='login'">Login</button>
+        </div>
+    </nav>
+</body>
+
+</html>

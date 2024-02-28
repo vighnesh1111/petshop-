@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact us</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            cursor: pointer;
+            background-color: #DDD0C8;
+        }
+
+        .main1{
+            height: 100px;
+            font-size: xx-large;
+            /* background-color: red; */
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        .left{
+            float: left;
+            font-size: 30px;
+            /* background-color: pink; */
+            text-align: center;
+            width: 50%;
+            height: 200px;
+            padding-top: 130px;
+            padding-bottom: 50px;
+        }
+
+        .right{
+            float: right;
+            font-size: 30px;
+            /* background-color: violet; */
+            text-align: center;
+            width: 50%;
+            height: 200px;
+            padding-top: 130px;
+            padding-bottom: 50px;
+        }
+    </style>
+</head>
+
+<body>  
+    <div id="nav1">
+    {% include "nav.html" %}
+</div>
+
+<div id="nav2">
+{% include "sellernav.html" %}
+</div>
+
+    <div class="main">
+        <div class="main1">
+            For any enquiry contact us
+        </div>
+        <div class="main2">
+            <div class="left">
+                Phone Number: 9188255662 <br> <br>
+                Tel Number: 025112345
+            </div>
+            <div class="right">
+                Email: pawandmeows@gmail.com
+            </div>
+        </div>
+    </div>
+
+    {% include "footer.html" %}
+</body>
+
+<script>
+    if (document.getElementById("loggg").innerHTML == "Login"){
+        window.location.href = "/login"
+    }
+    let ops = localStorage.getItem("only")
+
+    if(ops == 1 || ops == null){
+        document.getElementById('nav2').style.display = 'none';
+    }else{
+        document.getElementById('nav1').style.display = 'none';
+     
+    }
+</script>
+
+</html>

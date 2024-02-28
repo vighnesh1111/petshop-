@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell dog form</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            cursor: pointer;
+            background-color: #DDD0C8;
+        }
+
+        form {
+            text-align: center;
+            font-size: x-large;
+            padding-bottom: 100px;
+        }
+
+        .main {
+            font-size: xx-large;
+            text-align: center;
+            height: 50px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        input {
+            text-align: center;
+            height: 40px;
+            width: 300px;
+            font-size: large;
+        }
+
+        button {
+            border: none;
+            width: 150px;
+            height: 45px;
+            font-size: large;
+        }
+
+        button:hover {
+            /* background-color: greenyellow; */
+            color: white;
+        }
+
+        textarea {
+            text-align: center;
+            font-size: x-large;
+        }
+
+        #but {
+            background-color: black;
+            color: white;
+        }
+
+        #but:hover {
+            color: #DDD0C8;
+        }
+
+        select {
+            width: 300px;
+            height: 40px;
+            text-align: center;
+            font-size: large;
+        }
+    </style>
+</head>
+
+<body>
+    {% include "sellernav.html" %}
+    <div class="main">Seller module</div>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="text" name="username" id="username" readonly value="{{request.user}}"><br><br>
+        Enter breed <br>
+        {{form.breed}} <br><br>
+        <input type="number" name="age" id="age" placeholder="Enter age in months"><br><br>
+        Enter image of pet <br> <input type="file" name="img" id="img" style="margin-left: 100px;"> <br><br>
+        <input type="number" name="phone" id="phone" placeholder="Enter your phone number"> <br><br>
+        <input type="number" name="price" id="price" placeholder="Enter price"><br><br>
+        <textarea name="address" id="address" cols="30" rows="5" placeholder="Enter your address"></textarea> <br> <br>
+        <button type="submit" id="but">Submit</button>
+    </form>
+    {% include "footer.html" %}
+</body>
+
+</html>
