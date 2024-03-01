@@ -11,6 +11,12 @@ from .forms import feedbackForm
 from .models import feedbackone
 from .models import doctor
 from django.views.decorators.csrf import csrf_exempt
+from django.conf import settings
+from django.core.mail import send_mail
+from django.shortcuts import reverse
+from django.views.generic import TemplateView, FormView
+from .forms import ContactForm
+
 
 # Create your views here.
 def index(request):
@@ -214,3 +220,35 @@ def sold(request):
     trackInfos = trackDog.objects.filter(age=0,username=request.user)
     trackInfos2 = trackCat.objects.filter(age=0,username=request.user)
     return render(request, "sold.html", {"trackInfos": trackInfos, "trackInfos2": trackInfos2})
+
+
+
+
+class SuccessView(TemplateView):
+    template_name = "appointmentBooked.html"
+
+class ContactView(FormView):
+    form_class = ContactForm
+    template_name = "doctor.html"
+
+    def get_success_url(self):
+        return reverse("doctor")
+
+    def form_valid(self, form):
+        email = form.cleaned_data.get("email")
+        reason = form.cleaned_data.get("reason")
+
+        full_message = f"""
+            Received message below from {email}
+            ________________________
+
+
+            {reason}
+            """
+        send_mail(
+            subject="Received contact form submission",
+            message=full_message,
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            recipient_list=[settings.NOTIFY_EMAIL],
+        )
+        return super(ContactView, self).form_valid(form)

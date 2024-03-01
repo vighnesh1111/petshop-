@@ -23,3 +23,11 @@ class feedbackForm(forms.ModelForm):
     class Meta:
         model = feedbackone
         fields = ['name', 'phone', 'email', 'subject', 'message']
+
+class ContactForm(forms.Form):
+    email = forms.EmailField(
+        widget=forms.TextInput(attrs={"placeholder": "Your e-mail", 'style': 'margin-bottom: 10px;'})
+    )
+    reason = forms.CharField(
+        widget=forms.Textarea(attrs={"placeholder": "Enter reason", 'style': 'margin-bottom: 10px;'})
+    )

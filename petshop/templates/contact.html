@@ -73,18 +73,14 @@
 
 <body>
   {% include "nav.html" %}
-  <div class="main">Veterinarian Appointment</div>
-
-  <form method="post">
-    {% csrf_token %}
-    <input type="text" name="username" id="username" readonly value="{{request.user}}"><br><br>
-    {{form.pet}} <br><br>
-    <input type="email" name="email" id="email" placeholder="Enter your email"> <br><br>
-    <textarea name="reason" id="reason" cols="30" rows="5" placeholder="Enter reason"></textarea> <br><br>
-    <textarea name="address" id="address" cols="30" rows="5" placeholder="Enter your address"></textarea> <br> <br>
-    <input type="number" name="phone" id="phone" placeholder="Enter your phone number"> <br><br>
-    <button type="submit" id="but">Submit</button>
-  </form>
+  <center><h1>Contact Us</h1></center>
+<form method="post">
+  {% csrf_token %}
+  {{ form }}
+  <div class="form-actions">
+    <button id="but" type="submit">Send</button>
+  </div>
+</form>
 
   {% include "footer.html" %}
 </body>
